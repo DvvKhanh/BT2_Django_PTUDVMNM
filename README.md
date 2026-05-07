@@ -359,6 +359,12 @@ admin.site.register(Payment)
 - Giao diện sau khi đăng nhập:
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/1ebed5d8-6830-42cc-a670-e109690fb337" />
 
+- Thêm khách hàng
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/18d11930-1a02-44dd-aa31-0d970e363950" />
+
+- Thêm hợp đồng vay
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/16e195fe-4fc2-4a8b-870c-3c4efbacab2a" />
+
 ## 15. Kiểm tra phpMyAdmin
 - Truy cập: http://192.168.91.154:8080/
 - Đăng nhập tài khoản:
@@ -374,6 +380,13 @@ admin.site.register(Payment)
 
 - Giao diện sau khi đăng nhập
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/49685a76-876a-46e3-a6b1-01bfd9aafd27" />
+
+- Kiểm tra các bảng
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/fd758455-75ec-47ac-a341-1f6d7174b64b" />
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/22ee5cf6-0938-47d8-924d-03f969106eb4" />
+
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2c3b7f95-5f0e-4ae3-8e33-a96544bb52a2" />
 
 ## 16. Tạo Template HTML
 - Vào thư mục project: ```cd ~/pawnshop_project/django_app```
@@ -475,13 +488,8 @@ urlpatterns = [
 - ```docker-compose restart django```
 <img width="819" height="84" alt="image" src="https://github.com/user-attachments/assets/6ef84ee8-93a4-4b54-bde7-753625e08c86" />
 
-## Thêm danh sách Khách nợ quá hạn:
-- Vào: ```cd ~/pawnshop_project```
-- Chạy lệnh: ```docker-compose exec django bash```
-- Mở Django shell: ```python manage.py shell```
-- Thêm danh sách khách hàng quá hạn
 - Truy cập: http://192.168.91.154:8000/
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/bee1cbcb-8941-48ac-acf6-ab60739989f5" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a913bd26-6e76-4d7e-9cfb-f5d97cdb2300" />
 
 ## 19. Public bằng Cloudflare Tunnel
 ### Cài Cloudflare trên Ubuntu
@@ -546,7 +554,7 @@ ingress:
 
 ## 20. Truy cập website
 - Truy cập: https://camdo.khanh123.id.vn/
-<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/5a99c689-c1f9-4bf6-8f97-9c6a976a18c7" />
+![Uploading image.png…]()
 
 - Truy cập Admin Django: https://camdo.khanh123.id.vn/admin
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/706bb53f-d47b-4a0f-9635-ff548b247c61" />
