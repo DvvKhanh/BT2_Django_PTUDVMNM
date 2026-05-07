@@ -528,7 +528,7 @@ tunnel: 28543b52-e6a6-49a9-8907-cbf26cdb024d
 credentials-file: /home/khanh/.cloudflared/28543b52-e6a6-49a9-8907-cbf26cdb024d.json
 
 ingress:
-  - hostname: camdo_hanh123.id.vn
+  - hostname: camdo_khanh123.id.vn
     service: http://localhost:8000
 
   - service: http_status:404
