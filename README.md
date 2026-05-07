@@ -554,7 +554,7 @@ ingress:
 
 ## 20. Truy cập website
 - Truy cập: https://camdo.khanh123.id.vn/
-![Uploading image.png…]()
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/04251410-4c0f-4f34-a5de-2e5a274d1b70" />
 
 - Truy cập Admin Django: https://camdo.khanh123.id.vn/admin
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/706bb53f-d47b-4a0f-9635-ff548b247c61" />
