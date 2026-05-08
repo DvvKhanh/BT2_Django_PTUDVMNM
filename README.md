@@ -24,7 +24,71 @@
 
  # BÀI LÀM
  ## 1. Tổ chức CSDL cho hệ thống quản lý tiệm cầm đồ
+<img width="960" height="1280" alt="image" src="https://github.com/user-attachments/assets/6c9e2edc-e167-4f4e-81ac-1f498f285de9" />
 
+- Giải thích:
+  + Một khách hàng khi đến tiệm có thể thực hiện cầm đồ nhiều lần khác nhau, vì vậy thông tin của một khách hàng sẽ liên kết với nhiều hợp đồng cầm đồ.
+  + Mỗi món đồ cầm cố chỉ được ghi nhận cho một hợp đồng cụ thể để dễ theo dõi nguồn gốc và giá trị tài sản.
+  + Trong quá trình vay, khách hàng có thể trả tiền thành nhiều đợt khác nhau, do đó một hợp đồng sẽ phát sinh nhiều lần thanh toán.
+### 1.1. Mô tả chi tiết
+👨‍💼 Bảng Khach_Hang
+- Mục đích: Lưu thông tin người mang tài sản đến cầm cố tại tiệm.
+- Các trường dữ liệu:
+```
+| Tên trường    | Kiểu dữ liệu | Ý nghĩa                   |
+| ------------- | ------------ | ------------------------- |
+| id            | INT (PK)     | Mã khách hàng, khóa chính |
+| ho_ten        | VARCHAR      | Họ và tên khách hàng      |
+| so_dien_thoai | VARCHAR      | Số điện thoại liên hệ     |
+| dia_chi       | TEXT         | Địa chỉ khách hàng        |
+
+```
+
+💎 Bảng Mon_Do
+- Mục đích: Lưu thông tin các tài sản khách mang tới cầm.
+- Các trường dữ liệu:
+```
+| Tên trường | Kiểu dữ liệu | Ý nghĩa           |
+| ---------- | ------------ | ----------------- |
+| id         | INT (PK)     | Mã món đồ         |
+| ten_mon_do | VARCHAR      | Tên món đồ        |
+| mo_ta      | TEXT         | Mô tả chi tiết    |
+| tinh_trang | VARCHAR      | Tình trạng món đồ |
+```
+- Ví dụ tên món đồ:
+  + Điện thoại iPhone 13
+  + Laptop Dell
+  + Xe máy Vision
+- Trường “tình_trạng” giúp quản lý: mới, cũ, trầy xước, hỏng nhẹ, đã chuộc
+
+📄 Bảng Hop_Dong
+- Mục đích: Lưu thông tin giao dịch cầm đồ giữa khách hàng và tiệm.
+- Các trường dữ liệu:
+```
+| Tên trường    | Kiểu dữ liệu | Ý nghĩa               |
+| ------------- | ------------ | --------------------- |
+| id            | INT (PK)     | Mã hợp đồng           |
+| khach_hang_id | INT (FK)     | Tham chiếu khách hàng |
+| mon_do_id     | INT (FK)     | Tham chiếu món đồ     |
+| so_tien       | DECIMAL      | Số tiền cho vay       |
+| ngay_cam      | DATE         | Ngày bắt đầu cầm      |
+| ngay_het_han  | DATE         | Ngày hết hạn          |
+| lai_suat      | FLOAT        | Lãi suất              |
+| trang_thai    | VARCHAR      | Trạng thái hợp đồng   |
+```
+
+💰 Bảng Thanh_Toan
+- Mục đích: Lưu lịch sử khách trả tiền cho hợp đồng.
+- Các trường dữ liệu:
+```
+| Tên trường      | Kiểu dữ liệu | Ý nghĩa             |
+| --------------- | ------------ | ------------------- |
+| id              | INT (PK)     | Mã thanh toán       |
+| ngay_thanh_toan | DATE         | Ngày trả tiền       |
+| so_tien         | DECIMAL      | Số tiền thanh toán  |
+| ghi_chu         | TEXT         | Ghi chú             |
+| hop_dong_id     | INT (FK)     | Tham chiếu hợp đồng |
+```
  ## 2. Cài đặt Ubuntu
  ### Cập nhật Ubuntu
  - Chạy lệnh:
