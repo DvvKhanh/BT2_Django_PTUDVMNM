@@ -89,7 +89,38 @@
 | ghi_chu         | TEXT         | Ghi chú             |
 | hop_dong_id     | INT (FK)     | Tham chiếu hợp đồng |
 ```
- ## 2. Cài đặt Ubuntu
+
+## 2. Cấu trúc thư mục
+```
+pawnshop_project/
+│
+├── docker-compose.yml
+│
+├── django_app/
+│   │
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── manage.py
+│   │
+│   ├── pawnshop/
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   ├── wsgi.py
+│   │   └── asgi.py
+│   │
+│   ├── management/
+│      ├── admin.py
+│      ├── apps.py
+│      ├── models.py
+│      ├── views.py
+│      ├── tests.py
+│      ├── migrations/
+│      └── templates/
+│          └── management/
+│              └── home.html
+└── README.md
+```
+## 3. Cài đặt Ubuntu
  ### Cập nhật Ubuntu
  - Chạy lệnh:
 ```
@@ -105,7 +136,7 @@ sudo apt upgrade -y
 - Kiểm tra: ```docker-compose version```
 <img width="572" height="141" alt="image" src="https://github.com/user-attachments/assets/4dc10b7b-84b8-4b64-9850-8fb438312940" />
 
-## 3. Tạo thư mục project
+## 4. Tạo thư mục project
 ### Tạo thư mục
 ```
 mkdir pawnshop_project
@@ -126,7 +157,7 @@ pawnshop_project/
     └── requirements.txt
 ```
 
-## 4. Tạo Dockerfile
+## 5. Tạo Dockerfile
 ### Vào thư mục: 
 ```cd django_app```
 ### Tạo file
@@ -175,7 +206,7 @@ CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 | CMD     | lệnh khởi động    |
 ```
 
-## 5. Tạo requirements.txt
+## 6. Tạo requirements.txt
 ### Tạo file: ```sudo nano requirements.txt```
 ### Nội dung:
 ```
@@ -189,7 +220,7 @@ mysqlclient
 PyMySQL
 ```
 
-## 6. Tạo docker-compose.yml
+## 7. Tạo docker-compose.yml
 - Tạo file: ```sudo nano docker-compose.yml```
 - Nội dung file:
 ```
@@ -251,19 +282,19 @@ volumes:
 ```
 <img width="1479" height="756" alt="image" src="https://github.com/user-attachments/assets/4e0d5879-eb64-4df7-8d70-d6220d110744" />
 
-## 7. Build và chạy lại container
+## 8. Build và chạy lại container
 - Chạy lệnh: ```docker-compose up --build -d```
 <img width="1477" height="751" alt="image" src="https://github.com/user-attachments/assets/9cec4054-a5fd-484c-99e4-f946c9b6c4d2" />
 
 - Kiểm tra: ```docker ps```
 <img width="1478" height="247" alt="image" src="https://github.com/user-attachments/assets/d7d2139f-f054-4f98-8213-7020e4bffffe" />
 
-## 8. Tạo Django project
+## 9. Tạo Django project
 - Vào container Django: ```docker-compose exec django bash```
 - Tạo project: ```django-admin startproject pawnshop .```
 - Tạo app: ```python manage.py startapp management```
 
-## 9. Cầu hình Django
+## 10. Cầu hình Django
 - Mở settings.py: ```nano pawnshop/settings.py```
 - Sửa ALLOWED_HOSTS
   + Tìm dòng: ALLOWED_HOSTS = []
@@ -294,7 +325,7 @@ volumes:
 ```
 <img width="1469" height="744" alt="image" src="https://github.com/user-attachments/assets/d05b950a-1310-4918-9954-a63bb80a43d9" />
 
-## 10. Tạo Model
+## 11. Tạo Model
 - Mở file: ```nano management/models.py```
 - Nội dung:
 ```
@@ -385,14 +416,14 @@ class Payment(models.Model):
 
 <img width="1477" height="752" alt="image" src="https://github.com/user-attachments/assets/88353d33-32ef-4686-92e1-c2d4155ad72b" />
 
-## 11. Tạo bảng Database
+## 12. Tạo bảng Database
 - Tạo Migration: ```python manage.py makemigrations```
 <img width="795" height="164" alt="image" src="https://github.com/user-attachments/assets/ce37ccd0-e0f8-445a-b14e-6beb5c28b09c" />
 
 - Tạo Migrate: ```python manage.py migrate```
 <img width="892" height="571" alt="image" src="https://github.com/user-attachments/assets/c97180e2-b1cf-442d-8398-9ff43c037105" />
 
-## 12. Tạo Admin Django
+## 13. Tạo Admin Django
 - Mở file: ```nano management/admin.py```
 - Nội dung:
 ```
@@ -407,7 +438,7 @@ admin.site.register(Payment)
 ```
 <img width="1470" height="747" alt="image" src="https://github.com/user-attachments/assets/9fcd7d17-1889-427d-9680-9e9f75321963" />
 
-## 13. Tạo tài khoản Admin
+## 14. Tạo tài khoản Admin
 - Chạy lệnh: ```python manage.py createsuperuser```
 - Nhập thông tin:
   + Username: admin
@@ -415,7 +446,7 @@ admin.site.register(Payment)
   + Password: Tùy ý
 <img width="819" height="259" alt="image" src="https://github.com/user-attachments/assets/837ee924-bd20-40b3-aa16-a28f9488dd15" />
 
-## 14. Mở Django Admin
+## 15. Mở Django Admin
 - Trên trình duyệt, truy cập: http://192.168.91.154:8000/admin
 - Giao diện đăng nhập tài khoản Admin:
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/3d7c862f-63cb-4ee5-a908-3b6c26af22d5" />
@@ -429,7 +460,7 @@ admin.site.register(Payment)
 - Thêm hợp đồng vay
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/16e195fe-4fc2-4a8b-870c-3c4efbacab2a" />
 
-## 15. Kiểm tra phpMyAdmin
+## 16. Kiểm tra phpMyAdmin
 - Truy cập: http://192.168.91.154:8080/
 - Đăng nhập tài khoản:
 ```
@@ -452,7 +483,7 @@ admin.site.register(Payment)
 
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/2c3b7f95-5f0e-4ae3-8e33-a96544bb52a2" />
 
-## 16. Tạo Template HTML
+## 17. Tạo Template HTML
 - Vào thư mục project: ```cd ~/pawnshop_project/django_app```
 - Tạo thư mục: ```mkdir templates```
 - Tạo file: ```nano templates/home.html```
@@ -500,7 +531,7 @@ admin.site.register(Payment)
 </html>
 ```
 
-## 17. Tạo view
+## 18. Tạo view
 - Mở file: ```nano management/views.py```
 - Nội dung:
 ```
@@ -528,7 +559,7 @@ def home_page(request):
 ```
 <img width="1476" height="745" alt="image" src="https://github.com/user-attachments/assets/08c1e779-09ce-4c9b-93da-793c6277b3b8" />
 
-## 18. Tạo URL
+## 19. Tạo URL
 - Mở file: ```nano pawnshop/urls.py```
 - Nội dung:
 ```
@@ -555,7 +586,7 @@ urlpatterns = [
 - Truy cập: http://192.168.91.154:8000/
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a913bd26-6e76-4d7e-9cfb-f5d97cdb2300" />
 
-## 19. Public bằng Cloudflare Tunnel
+## 20. Public bằng Cloudflare Tunnel
 ### Cài Cloudflare trên Ubuntu
 - Download về:
 ```wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb```
@@ -616,7 +647,7 @@ ingress:
   + Không được tắt Terminal.
   + Nếu tắt -> Web sẽ off
 
-## 20. Truy cập website
+## 21. Truy cập website
 - Truy cập: https://camdo.khanh123.id.vn/
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/04251410-4c0f-4f34-a5de-2e5a274d1b70" />
 
